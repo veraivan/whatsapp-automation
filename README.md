@@ -18,7 +18,7 @@ Esto seran los requisitos por el momento, a medidia que avancemos en el desarrol
   * Usar el navegador chrome para la interaccion
   * Debe poder hacer uso del excel importado y extraer todos los datos  
   * Hacer uso de la libreria selenium para interactuar con el navegador
-  * Recuperar los datos de los inputs y enviarlo al script python
+  * Interaccion con Whatsapp Web
   
 * Integrar python con electron, en la logica debe poder recuperar los datos que va ingresando el usuario y enviarlo al script.py 
 

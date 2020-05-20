@@ -1,0 +1,24 @@
+{
+  "name": "whatsapp-automation",
+  "version": "1.0.0",
+  "description": "Desarrollar un aplicacion de escritorio multiplataforma, el objetivo de la app es poder automatizar el envio de mensajes a multiples contactos haciendo uso de su cuenta de Whatsapp.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veraivan/whatsapp-automation.git"
+  },
+  "keywords": [],
+  "author": "Ivan Vera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/veraivan/whatsapp-automation/issues"
+  },
+  "homepage": "https://github.com/veraivan/whatsapp-automation#readme",
+  "dependencies": {
+    "electron": "^9.0.0",
+    "electron-reload": "^1.5.0"
+  }
+}

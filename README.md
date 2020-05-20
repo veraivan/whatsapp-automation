@@ -57,3 +57,9 @@ Para levantar el proyecto con el comando:
 ```bash
 npm start
 ```
+**Obervacion:**
+En caso de un error al levantar el proyecto en linux, se debe al privilegio que necesita
+chrome-sanbox ya que es propiedad del superusuario para solucionarlo ejecute el siguiente comando: 
+```bash
+sudo sysctl kernel.unprivileged_userns_clone=1
+```

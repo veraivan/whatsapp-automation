@@ -1,13 +1,6 @@
-//Importamos de la libreria electron app y BrowserWindows
-const { app, BrowserWindow } = require('electron');
-
-//Importamos la libreria de url;
+const { app, BrowserWindow, Menu } = require('electron');
 const url = require('url');
-
-//Importamos el modulo Path
 const path = require('path');
-
-//Importamos el modulo electron-reaload para cuando haya cambios en los archivos se recarge la app
 const electronReload = require('electron-reload');
 
 //El modulo se ejecuta en modo desarrollo, una vez lista en produccion ya no se requiere el modulo
@@ -16,18 +9,26 @@ if ( process.env.NODE_ENV !== 'production' ){
 }
 
 //Variable global
-let ventanaPrincipal;
+var ventanaPrincipal;
 
-//Una ver que arranca la aplicacion muestre una nueva ventana
-app.on('ready', () =>{
-    ventanaPrincipal = new BrowserWindow({/*se coloca el ancho de la ventana por el 
-    momento es por default*/});
+//Cuando rranca la aplicacion muestre una nueva ventana
+app.on('ready', createWindows);
 
-    //Espeficamos la ruta para que lea la vista inical con url.format
+function createWindows(){
+    ventanaPrincipal = new BrowserWindow({
+        width: 900,
+        height: 600,
+        center: true,
+        resizable: false,
+        backgroundColor: '#FFF'
+    });
+
     ventanaPrincipal.loadURL(url.format({
         pathname: path.join(__dirname, 'vista/vista-principal.html'),
         protocol: 'file',
         slashes: true
     }));
 
-});
+    Menu.setApplicationMenu(null);
+    //ventanaPrincipal.webContents.openDevTools();
+}

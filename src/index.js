@@ -10,8 +10,6 @@ if ( process.env.NODE_ENV !== 'production' ){
 
 //Variable global
 var ventanaPrincipal;
-
-//Cuando rranca la aplicacion muestre una nueva ventana
 app.on('ready', createWindows);
 
 function createWindows(){
@@ -20,11 +18,14 @@ function createWindows(){
         height: 600,
         center: true,
         resizable: false,
-        backgroundColor: '#FFF'
+        backgroundColor: '#FFF',
+        webPreferences:{
+            nodeIntegration: true
+        }
     });
 
     ventanaPrincipal.loadURL(url.format({
-        pathname: path.join(__dirname, 'vista/vista-principal.html'),
+        pathname: path.join(__dirname, 'vista/view-main.html'),
         protocol: 'file',
         slashes: true
     }));

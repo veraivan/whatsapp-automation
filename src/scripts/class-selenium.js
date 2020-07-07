@@ -36,18 +36,27 @@ class Selenium{
     }
 
     async oneMessage(data){
-        try{
-            let url = "https://web.whatsapp.com/send?phone=";
-            let numberPhone = "595" + data.numero.replace("0", "");
-            let encodeText = encodeURI(data.text);
-            let text = "&text=";
-            await this.#driver.manage().setTimeouts( { implicit: 8000 } );
-            await this.#driver.get(url + numberPhone + text + encodeText);
-            let enter =  await this.#driver.findElement(By.xpath('//div[@id="main"]//footer/div[1]/div[3]/button'));
-            enter.click();
-        }catch(error){
-            console.log(error);
-        }
+        let url = "https://web.whatsapp.com/send?phone=";
+        //let numberPhone = "595" + data.numero.replace("0", "");
+        let encodeText = encodeURI(data.text);
+        let text = "&text=";
+        await this.#driver.manage().setTimeouts( { implicit: 10000 } );
+        await this.#driver.get(url + data.numero + text + encodeText);
+        let enter =  await this.#driver.findElement(By.xpath('//div[@id="main"]//footer/div[1]/div[3]/button'));
+        await enter.click();
+    }
+
+    async deleteContact(number){
+        let cut_one  = number.substr(0,2);
+        let cut_two  = number.substr(3,5);
+        let cut_three = number.substr(6,11);
+        let numberPhone = "+" + cut_one + " " + cut_two +  " " + cut_three;
+        let clickRight = await this.#driver.findElement(By.xpath('//span[@title="' + numberPhone + '"' + ']'));
+        await this.#driver.actions().contextClick(clickRight).perform();
+        let clickDelete = await this.#driver.findElement(By.xpath('//div[@title="Delete chat"]'));
+        await clickDelete.click();
+        clickDelete = await this.#driver.findElement(By.xpath('//div[1]/div[1]/span[2]/div/div/div/div/div/div/div[2]/div[2]'));
+        clickDelete.click();
     }
 
     async closedSession() {

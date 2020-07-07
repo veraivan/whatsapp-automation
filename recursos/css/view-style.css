@@ -42,7 +42,7 @@ body{
 }
 
 #text-cerrar{
-    font-size: 13px;
+    font-size: 15px;
     color: #FFF;
     font-weight: bold;
 }
@@ -105,7 +105,7 @@ body{
     background: #483D8B;
 }
 
-#one-message{
+.form-message{
     width: 80%;
     height: 100%;
     display: flex;
@@ -178,17 +178,17 @@ body{
     margin-top: 4rem;
 }
 
-#message{
+.message{
     resize: none;
 }
 
-#message:focus{
+.message:focus{
     outline: none !important;
     border: 1px solid #0d192e;
     box-shadow: 0 0 10px #719ECE;
 }
 
-#enviarbtn{
+.enviarbtn{
     margin-top: 10px;
     font-weight: bold;
     font-size: 18px;
@@ -203,7 +203,7 @@ body{
 }
 
 
-#enviarbtn:disabled{
+.enviarbtn:disabled{
     cursor: not-allowed;
     background-color: #2E8B57;
     color: #FFF;
@@ -309,10 +309,6 @@ body{
     }
 }
 
-.enviando p{
-    animation: textAnimation 1s linear infinite;
-}
-
 @keyframes textAnimation{
     
     0%{
@@ -340,10 +336,96 @@ body{
     align-items: center;
 }
 
-.sent i{
+i{
     margin-left: 0.5rem;
 }
 
+#selector{
+    cursor: pointer;
+    margin-top: 1.5rem;
+    padding: 16px 48px;
+    border: 3px solid #ffc872;
+    border-radius: 24px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#selector:hover{
+    transform: scale(1.04);
+
+}
+
+.active-file{
+    background: #ffc872;
+    color: #242424;
+}
+
+#selector span{
+    font-weight: normal;
+}
+
+.panel{
+    margin-top: 7px;
+    width: 90%;
+    height: 95%;
+    border-radius: 2px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0d192e;
+}
+
+.notificacion{
+    width: 300px;
+    height: 40px;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    background: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+}
+
+.p-sending {
+    animation: textAnimation 1s linear infinite;
+}
+
+.total{
+    margin-left: 1.7rem;
+    color: #FFF;
+    width: 200px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.total ul{
+    margin: 0;
+    padding: 0;
+}
+
+.total ul li{
+    list-style: none;
+}
+
+.total ul li p{
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+.total ul li:nth-child(2) p span{
+    color: green;
+}
+
+.total ul li:nth-child(3) p span{
+    color: red;
+}
 
 
 

@@ -1,13 +1,8 @@
 const { app, BrowserWindow, Menu, ipcMain } = require('electron');
 const url = require('url');
 const path = require('path');
-const electronReload = require('electron-reload');
 const { Selenium } = require('./scripts/class-selenium');
 
-//El modulo se ejecuta en modo desarrollo, una vez lista en produccion ya no se requiere el modulo
-if ( process.env.NODE_ENV !== 'production' ){
-    electronReload(__dirname, {});
-}
 
 //Variable global
 var ventanaPrincipal;
@@ -43,9 +38,17 @@ ipcMain.handle('inicioSelenium', async (event) =>{
 
 //Envio de un solo mensaje handle(sincronizar con el render) 
 ipcMain.handle('enviarMensaje', async (event, data) => {
-    await selenium.oneMessage(data);
+    try{
+        await selenium.oneMessage(data);
+        ventanaPrincipal.webContents.send('mensajeEnviado', data.indice);
+    }catch(e){
+        ventanaPrincipal.webContents.send('mensajeNoenviado', data.indice);
+    }
 });
 
+ipcMain.handle('eliminar', async (event, number) =>{
+    await selenium.deleteContact(number);
+});
 
 //Cerrar sesion
 ipcMain.handle('cerrarSesion', async (event) => {

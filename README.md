@@ -3,9 +3,9 @@ Desktop application using the Electron framework
 
 # Running
 Download the chromedriver and copy it to the scripts folder 
-[url](https://chromedriver.storage.googleapis.com/index.html)
+[URL CHOMEDRIVER](https://chromedriver.storage.googleapis.com/index.html)
 
-Then run the following command 
+Then run the following command: 
 ```bash
   npm install 
   npm start  

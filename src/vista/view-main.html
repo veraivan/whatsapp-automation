@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../recursos/css/view-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7f054a79bb.js" crossorigin="anonymous"></script>  
+    <script src="../scripts/automation.js" type="text/javascript"></script>
+    <title>WhatsApp Automation</title>
+</head>
+<body>
+    <div id="n_bar" class="navbar-1">
+        <div class="total">
+            <ul>
+                <li><p>Total de numeros: <span id="tn"></span></p></li>
+                <li><p>Mensaje enviados: <span id="me"></span></p></li>
+                <li><p>Mensaje no enviados: <span id="mne"></span></p></li>
+            </ul>
+        </div>
+        <div class="enviando">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <p class="p-sending">Enviando mensaje...</p>
+        </div>
+        <div class="sent">
+            <p>Mensaje Enviado</p>
+            <i class="fas fa-check-circle fa-2x"></i>
+        </div>
+        <button id="btn-cerrar" class="b-cerrar">
+            <span id="text-cerrar">Cerrar sesión</span>
+            <div id="loader"></div>
+        </button>
+    </div>
+    <div id="sub-container">
+        <div class="sidebar">
+            <ul>
+                <li class="options active" id="one">
+                    <i class="fas fa-comment fa-2x"></i>
+                    <p>Enviar Mensaje</p>
+                </li>
+                <li id="mul" class="options">
+                    <i class="fas fa-comments fa-2x"></i>
+                    <p>Enviar mensajes múltiples</p>
+                </li>
+            </ul>
+        </div>
+        <div class="text">
+                <form class="form-message" id="one-message">
+                    <div class="box-1">
+                        <input type="text" id="number" name="number">
+                        <label class="lb-number">
+                            <span class="lb-text">Ingrese un numero de telefono</span>
+                        </label>
+                    </div>
+                    <div class="box-2">
+                        <textarea id="text_messageOne" class="message" cols="50" rows="15" placeholder="Escriba su mensaje..."></textarea>
+                    </div> 
+                    <button id="enviar-one" class="enviarbtn">Enviar</button>
+                </form>
+                <form id="mul-message" class="form-message">
+                    <input type="file" accept=".csv" id="fileCSV" hidden>
+                    <label for="fileCSV" id="selector">Selecionar csv</label>
+                    <div class="box-2">
+                        <textarea id="text_messageMul" class="message" cols="50" rows="15" placeholder="Escriba su mensaje..."></textarea>
+                    </div> 
+                    <button id="enviar-mul" class="enviarbtn">Enviar</button>
+                </form>
+            </div> 
+        </div>
+    </div>
+</body>
+</html>

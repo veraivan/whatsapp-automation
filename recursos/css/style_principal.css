@@ -1,0 +1,110 @@
+body{
+    margin: 0;
+    display: flex;
+    background-color: #0d192e;
+    font-family: 'Lato', sans-serif;
+}
+
+#box-1{
+    height: 100vh;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#box-2{
+    height: 100vh;
+    width: 60%;
+    background-image: url("../images/nature-landscape-train.jpg");
+    clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+h2{
+    font-size: 30px;
+    color: #FFF;
+    margin-left: 1.5rem;
+    margin-bottom: 0;
+}
+
+#descripcion{
+    margin-left: 1.5rem;
+    color: #FFF;
+    line-height: 1.6rem;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#footer{
+    position: absolute;
+    bottom: 0;
+    width: 60%;
+    height: 60px;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: oblique;
+}
+
+#about{
+    font-size: 15px;
+    color: #FFF;
+}
+
+.icon-github{
+    color: #FFF;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.icon-github:hover{
+    color: green;
+}
+
+.button{
+    margin-top: 0.5rem;
+    margin-left: 1.5rem;
+    outline: none;
+    width: 200px;
+    height: 50px;
+    background: none;
+    border: 0.055rem solid #FFF;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#text{
+    text-transform: uppercase;
+    color: #FFF;
+    font-weight: bold;
+}
+
+#text:hover{
+    color: #3498db;
+}
+
+#loader{
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #3498db;
+    width: 25px;
+    height: 25px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin{
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+
+

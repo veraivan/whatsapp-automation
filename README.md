@@ -7,7 +7,8 @@ Download the chromedriver and copy it to the scripts folder
 
 Then run the following command 
 ```bash
-  npm start 
+  npm install 
+  npm start  
 ```
 **Nota**
 When running you get a bug on Linux OS, you need to get chrome-sandbox privilege so run the following command: 

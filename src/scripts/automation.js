@@ -4,10 +4,11 @@ const Papa = require('papaparse');
 
 
 let l_form, enviar_one, enviar_mul, navbar_notification, navbar, sent;
-let text_cerrar, loader, file, form_mul, one, mul, panel, total;
+let text_cerrar, loader, file, form_mul, one, mul, panel, total, inputNumber;
 let count_me = count_mne = 0;
 
 document.addEventListener('DOMContentLoaded', () =>{
+    inputNumber = document.querySelector('#number');
     total = document.querySelector('.total');
     total.style.display = 'none';
     one = document.querySelector('#one');
@@ -28,7 +29,8 @@ document.addEventListener('DOMContentLoaded', () =>{
     enviar_mul.disabled = true;
     navbar_notification.style.display = 'none';
     sent.style.display = 'none';
-    l_form.addEventListener('input', comprobarCampos);   
+    l_form.addEventListener('input', comprobarCampos);
+    inputNumber.addEventListener('keypress', validationNumber, false);   
     enviar_one.addEventListener('click', enviarMensaje, false);
     btn_cerrar.addEventListener('click', cerrarSesion, false);
     one.addEventListener('click', () =>{
@@ -93,7 +95,7 @@ async function enviarMensaje(e){
     navbar_notification.style.display = 'flex';
 
     const data = {
-        numero: document.querySelector('#number').value,
+        numero: "595" + document.querySelector('#number').value,
         text: document.querySelector('#text_messageOne').value
     };
 
@@ -101,7 +103,7 @@ async function enviarMensaje(e){
     l_form.reset();
     e.preventDefault();
 
-    await ipcRenderer.invoke('enviarMensaje', data);
+    await ipcRenderer.invoke('enviarMessageOne', data);
     
     navbar_notification.style.display = 'none';
     sent.style.display = 'flex';
@@ -159,14 +161,15 @@ async function listaContactos(lista){
 
     for ( let i = 1; i < lista.length; i++ ){
         data = {
-            numero: json[i][0],
+            numero: lista[i][0],
             text: document.getElementById('text_messageMul').value,
             indice: i
         }
         enviandoMensaje(data.indice);
         await ipcRenderer.invoke('enviarMensaje', data);
-        await ipcRenderer.invoke('eliminar', data.numero);
     }
+    panel.remove();
+    form_mul.style.display = 'flex';
 }
 
 
@@ -203,4 +206,11 @@ function mensajeFallido(numero){
     let i = document.createElement('i');
     i.classList.add('fas', 'fa-times-circle', 'fa-2x');
     divEnviar.appendChild(i);
+}
+
+function validationNumber(event){
+    let key = event.charCode;
+    if ( key < 48 || key > 57 ){
+        event.preventDefault();
+    }
 }

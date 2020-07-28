@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () =>{
 });
 
 async function inicioSelenium(){
-    console.log("llamo a la funcion");
     bscanner.style.display = 'none';
     loader.style.display = 'block';
     await ipcRenderer.invoke('inicioSelenium');

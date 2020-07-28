@@ -28,7 +28,7 @@ function createWindows(){
     }));
 
     Menu.setApplicationMenu(null);
-    ventanaPrincipal.webContents.openDevTools();
+    //ventanaPrincipal.webContents.openDevTools();
 }
 
 //Arranca el browser
@@ -41,13 +41,19 @@ ipcMain.handle('enviarMensaje', async (event, data) => {
     try{
         await selenium.oneMessage(data);
         ventanaPrincipal.webContents.send('mensajeEnviado', data.indice);
+        await selenium.deleteContact(data.numero);
     }catch(e){
         ventanaPrincipal.webContents.send('mensajeNoenviado', data.indice);
     }
 });
 
-ipcMain.handle('eliminar', async (event, number) =>{
-    await selenium.deleteContact(number);
+
+ipcMain.handle('enviarMessageOne', async (event, data) => {
+    try{
+        await selenium.oneMessage(data);
+    }catch(e){
+        console.log(e);
+    }
 });
 
 //Cerrar sesion

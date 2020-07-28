@@ -37,10 +37,9 @@ class Selenium{
 
     async oneMessage(data){
         let url = "https://web.whatsapp.com/send?phone=";
-        //let numberPhone = "595" + data.numero.replace("0", "");
         let encodeText = encodeURI(data.text);
         let text = "&text=";
-        await this.#driver.manage().setTimeouts( { implicit: 10000 } );
+        await this.#driver.manage().setTimeouts( { implicit: 11000 } );
         await this.#driver.get(url + data.numero + text + encodeText);
         let enter =  await this.#driver.findElement(By.xpath('//div[@id="main"]//footer/div[1]/div[3]/button'));
         await enter.click();
